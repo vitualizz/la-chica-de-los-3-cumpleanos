@@ -1,5 +1,5 @@
 import { useGetCharacter } from "@/hooks/useCharacter";
-import { LetterDates } from "../constants/LetterDates";
+import { LetterDates, Letters } from "../constants/LetterDates";
 import LetterLink from "@/components/LetterLink";
 
 export default function Home() {
@@ -61,25 +61,26 @@ export default function Home() {
       <div className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
         <LetterLink
           letterDay={LetterDates.first}
-          title="Primera Carta"
-          description="La cruda realidad del comienzo. Palabras sin filtro sobre lo que realmente significa crecer y enfrentar la vida tal como es."
-          href="/carta-28"
-          character="hello-kitty"
+          title={Letters[LetterDates.first].title}
+          description={Letters[LetterDates.first].description}
+          href={Letters[LetterDates.first].href}
+          character={Letters[LetterDates.first].character}
         />
 
         <LetterLink
           letterDay={LetterDates.second}
-          title="Segunda Carta"
-          description="El punto medio de la reflexión. Donde aceptamos que no todo está bien, pero seguimos adelante porque es lo que toca hacer."
-          href="/carta-29"
+          title={Letters[LetterDates.second].title}
+          description={Letters[LetterDates.second].description}
+          href={Letters[LetterDates.second].href}
+          character={Letters[LetterDates.second].character}
         />
 
         <LetterLink
           letterDay={LetterDates.third}
-          title="Tercera Carta"
-          description="La conclusión honesta. Sin finales de cuento de hadas, solo la realidad de seguir creciendo y aprendiendo de cada experiencia."
-          href="/carta-30"
-          character="kuromi"
+          title={Letters[LetterDates.third].title}
+          description={Letters[LetterDates.third].description}
+          href={Letters[LetterDates.third].href}
+          character={Letters[LetterDates.third].character}
         />
       </div>
 

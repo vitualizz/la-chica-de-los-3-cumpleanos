@@ -4,7 +4,7 @@ export const useGetCharacter = (character: string | undefined) => {
   if (character === "hello-kitty")
     return (
       <Image
-        src="/assets/kuromi.svg"
+        src="/assets/hello-kitty.svg"
         alt="Hello Kitty"
         width={64}
         height={64}
@@ -13,6 +13,11 @@ export const useGetCharacter = (character: string | undefined) => {
   if (character === "kuromi")
     return (
       <Image src="/assets/kuromi.svg" alt="Kuromi" width={64} height={64} />
+    );
+
+  if (character === "melody")
+    return (
+      <Image src="/assets/mymelody.svg" alt="Melody" width={64} height={64} />
     );
   return "💌";
 };
