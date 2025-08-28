@@ -3,8 +3,8 @@ import { LetterDates, Letters } from "../constants/LetterDates";
 import LetterLink from "@/components/LetterLink";
 
 export default function Home() {
-  const kuromi = useGetCharacter('kuromi');
-  const helloKitty = useGetCharacter('hello-kitty');
+  const kuromi = useGetCharacter("kuromi");
+  const helloKitty = useGetCharacter("hello-kitty");
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
@@ -39,20 +39,20 @@ export default function Home() {
 
         <div className="max-w-2xl mx-auto">
           <p className="text-xl text-slate-600 leading-relaxed mb-8 animate-in fade-in-0 duration-1000 delay-700">
-            La vida no siempre es perfecta, pero hay momentos que merecen ser
-            recordados. Esta es una reflexión honesta contada en tres actos,
-            tres días, tres verdades.
+            "La vida es un viaje de tres notas: la nostalgia que nos acompaña,
+            la libertad que buscamos y el amor que nos hace crecer.""
           </p>
 
-          <div
-            className="w-24 h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent mx-auto mb-8 
-                           animate-in slide-in-from-left-4 duration-1000 delay-1000"
-          />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent mx-auto mb-8 animate-in slide-in-from-left-4 duration-1000 delay-1000" />
 
           <p className="text-slate-500 leading-relaxed animate-in fade-in-0 duration-1000 delay-1200">
-            Cada reflexión llegará cuando tenga que llegar. No todo es color de
-            rosa, pero tampoco todo es gris. Así es la vida real, así son las
-            palabras que realmente importan.
+            No todas las palabras llegan a tiempo, ni todas las emociones son
+            fáciles de enfrentar. Algunas se esconden, otras se pierden en el
+            camino, y muchas necesitan esperar su momento. Pero lo que realmente
+            toca, lo que deja marca en la memoria y en el corazón, siempre
+            encuentra su instante. La vida es así: un espacio entre luces y
+            sombras, donde cada reflexión tiene su lugar y cada sentimiento
+            verdadero encuentra su voz.
           </p>
         </div>
       </div>
