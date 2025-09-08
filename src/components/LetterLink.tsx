@@ -8,11 +8,12 @@ import { cn } from "@/lib/utils";
 import SecretQuestionModal from "./SecretQuestionModal";
 
 type Props = {
-  letterDay: number;
+  letterDay?: number;
   title: string;
   description: string;
   href: string;
   character?: string;
+  positionalOptional?: number;
 };
 
 const LetterLink = ({
@@ -21,6 +22,7 @@ const LetterLink = ({
   description,
   href,
   character,
+  positionalOptional
 }: Props) => {
   const [showModal, setShowModal] = useState(false);
   const { isAvailable } = useLetterInfo(letterDay);
@@ -112,13 +114,13 @@ const LetterLink = ({
             {title}
           </h3>
 
-          <p className="text-slate-600 leading-relaxed mb-8 group-hover:text-slate-700 transition-colors">
+          <p className="text-slate-600 leading-relaxed mb-8 group-hover:text-slate-700 transition-colors h-20">
             {description}
           </p>
 
           <div
             className={cn(
-              "inline-flex items-center text-white gap-2 px-6 py-3 w-full justify-center rounded-full shadow-lg cursor-not-allowed opacity-60",
+              "inline-flex items-center text-white gap-2 px-6 py-3 w-full justify-center rounded-full shadow-lg opacity-60",
               colors.button,
             )}
           >
@@ -135,6 +137,7 @@ const LetterLink = ({
         onCorrentAnswer={handleCorrectAnswer}
         letterDay={letterDay}
         characterName={character}
+        positionOptional={positionalOptional}
       />
     </>
   );

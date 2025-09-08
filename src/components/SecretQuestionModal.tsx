@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { X, Heart, Lock } from "lucide-react";
+import { X, Lock } from "lucide-react";
 import { LetterSecretQuestions } from "@/constants/LetterDates";
 import { useGetCharacter, useGetColors } from "@/hooks/useCharacter";
 import { cn } from "@/lib/utils";
+import { LetterOptionalQuestions } from "@/constants/LetterOptionals";
 
 type SecretQuestionModalProps = {
   isOpen: boolean;
   onCorrentAnswer: () => void;
   onClose: () => void;
-  letterDay: number;
+  letterDay?: number;
   characterName?: string;
+  positionOptional?: number;
 };
 
 const SecretQuestionModal = ({
@@ -20,11 +22,12 @@ const SecretQuestionModal = ({
   onCorrentAnswer,
   letterDay,
   characterName,
+  positionOptional
 }: SecretQuestionModalProps) => {
   const [answer, setAnswer] = useState("");
   const [showHint, setShowHint] = useState(false);
 
-  const question = LetterSecretQuestions[letterDay];
+  const question = letterDay ? LetterSecretQuestions[letterDay] : LetterOptionalQuestions[positionOptional ?? 1]
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

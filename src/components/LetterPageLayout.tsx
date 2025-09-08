@@ -6,15 +6,17 @@ import { ArrowLeft } from "lucide-react";
 import { useGetCharacter, useGetColors } from "@/hooks/useCharacter";
 import { cn } from "@/lib/utils";
 import { Letters } from "@/constants/LetterDates";
+import { LetterOptionals } from "@/constants/LetterOptionals";
 
 type Props = {
   children: ReactNode;
-  day: number;
+  day?: number;
+  positionOptional?: number;
 };
 
-const LetterPageLayout = ({ children, day }: Props) => {
-  const title = Letters[day].title;
-  const character = Letters[day].character;
+const LetterPageLayout = ({ children, day, positionOptional }: Props) => {
+  const title = day ? Letters[day].title : LetterOptionals[positionOptional ?? 1].title;
+  const character = day ? Letters[day].character : LetterOptionals[positionOptional ?? 1].character;
   const characterShow = useGetCharacter(character);
   const colors = useGetColors(character);
 

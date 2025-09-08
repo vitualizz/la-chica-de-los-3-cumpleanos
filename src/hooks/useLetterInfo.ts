@@ -3,7 +3,11 @@ type LetterInfo = {
   timeUntil: number | null;
 };
 
-const useLetterInfo = (letterDay: number): LetterInfo => {
+const useLetterInfo = (letterDay?: number): LetterInfo => {
+  if (!letterDay) {
+    return { isAvailable: true, timeUntil: null };
+  }
+
   const now = new Date();
 
   // Fecha límite (último día de agosto 2025)

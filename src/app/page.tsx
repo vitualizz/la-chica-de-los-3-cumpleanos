@@ -1,6 +1,7 @@
 import { useGetCharacter } from "@/hooks/useCharacter";
 import { LetterDates, Letters } from "../constants/LetterDates";
 import LetterLink from "@/components/LetterLink";
+import { LetterOptionals } from "@/constants/LetterOptionals";
 
 export default function Home() {
   const kuromi = useGetCharacter("kuromi");
@@ -28,6 +29,23 @@ export default function Home() {
           style={{ animationDelay: "2s", animationDuration: "5s" }}
         >
           💌
+        </div>
+
+        <div className="border-b-2 border-slate-200 mb-10 pb-10">
+          <h3 className="text-2xl font-light text-slate-800 mb-20 md:mb-6 leading-tight">
+            Ya pasó tu cumpleaños, y ahora que estás aquí, ¿te gustaría leer
+            algo más?
+          </h3>
+
+          <div className="text-left grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
+            <LetterLink
+              title={LetterOptionals[1].title}
+              description={LetterOptionals[1].description}
+              href={LetterOptionals[1].href}
+              character={LetterOptionals[1].character}
+              positionalOptional={1}
+            />
+          </div>
         </div>
 
         <h1 className="text-5xl md:text-6xl font-light text-slate-800 mb-20 md:mb-6 leading-tight">

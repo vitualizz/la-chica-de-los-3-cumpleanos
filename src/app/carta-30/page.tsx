@@ -2,7 +2,7 @@ import LetterPageLayout from "@/components/LetterPageLayout";
 
 const Letter30 = () => {
   return (
-    <LetterPageLayout day={28}>
+    <LetterPageLayout day={30}>
       <div className="space-y-8 text-slate-700 leading-relaxed">
         <div className="animate-in slide-in-from-bottom-4 duration-1000 delay-300">
           <p className="text-xl font-light text-center mb-8 text-slate-600">

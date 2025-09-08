@@ -2,9 +2,6 @@ export enum LetterDates {
   first = 28,
   second = 29,
   third = 30,
-  // first = 26,
-  // second = 27,
-  // third = 28,
 }
 
 export const LetterSecretQuestions: Record<
