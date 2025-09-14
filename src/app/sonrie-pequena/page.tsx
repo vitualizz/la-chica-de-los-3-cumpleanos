@@ -123,7 +123,7 @@ const LetterSmileLove = () => {
           </p>
           {sended ? (
             <p className="text-xl text-slate-600 my-2">
-              Gracias por tu respuesta. Te responderemos en breve.
+              Ahora conozco un poco más de ti. Siuuuuuuu, toma una galletita 🍪
             </p>
           ) : (
             <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
