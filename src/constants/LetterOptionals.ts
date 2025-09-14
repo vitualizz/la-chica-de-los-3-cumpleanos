@@ -7,6 +7,11 @@ export const LetterOptionalQuestions: Record<
     answer: "Levi",
     hint: "El mejor Ackerman",
   },
+  [2]: {
+    question: "La persona que no busca la felicidad, pero será feliz, ¿quién es?",
+    answer: "lee",
+    hint: "Su nombre tiene 3 letras",
+  },
 };
 
 export const LetterOptionals: Record<
@@ -19,5 +24,12 @@ export const LetterOptionals: Record<
       "Entre páginas se esconden las respuestas que la vida aún no nos da.",
     href: "/te-gusta-leer",
     character: "hello-kitty",
+  },
+  [2]: {
+    title: "¿Vale la pena sonreír?",
+    description:
+      "Entre la nostalgia y el caos, sonreír es un acto de rebeldía.",
+    href: "/sonrie-pequena",
+    character: "kuromi",
   },
 };

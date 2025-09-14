@@ -22,7 +22,7 @@ const LetterLink = ({
   description,
   href,
   character,
-  positionalOptional
+  positionalOptional,
 }: Props) => {
   const [showModal, setShowModal] = useState(false);
   const { isAvailable } = useLetterInfo(letterDay);
@@ -37,9 +37,9 @@ const LetterLink = ({
   };
 
   const handleCorrectAnswer = () => {
-    setShowModal(false)
+    setShowModal(false);
     window.location.href = href;
-  }
+  };
 
   if (!isAvailable) {
     return (
@@ -89,34 +89,36 @@ const LetterLink = ({
       <div onClick={handleCardClick} className="cursor-pointer">
         <div
           className={cn(
-            "group relative overflow-hidden rounded-2xl bg-gradient-to-br border p-8 transition-all duration-500 hover:shadow-xl hover:scale-[1.02] animate-in slide-in-from-bottom-4",
+            "group relative overflow-hidden rounded-2xl bg-gradient-to-br border p-8 transition-all duration-500 hover:shadow-xl hover:scale-[1.02] animate-in slide-in-from-bottom-4 h-[400px] flex flex-col justify-around",
             colors.bg,
             colors.border,
           )}
         >
-          {/* Character decoration */}
-          <div
-            className="absolute top-4 right-4 text-3xl opacity-30 group-hover:opacity-60 
+          <div>
+            {/* Character decoration */}
+            <div
+              className="absolute top-4 right-4 text-3xl opacity-30 group-hover:opacity-60 
                          group-hover:scale-110 transition-all duration-300"
-          >
-            {characterShow}
-          </div>
+            >
+              {characterShow}
+            </div>
 
-          {/* Available icon */}
-          <div
-            className={`inline-flex items-center justify-center w-12 h-12 rounded-full 
+            {/* Available icon */}
+            <div
+              className={`inline-flex items-center justify-center w-12 h-12 rounded-full 
                           bg-white/80 mb-6 group-hover:scale-110 transition-transform duration-300`}
-          >
-            <Eye size={24} className={colors.accent} />
+            >
+              <Eye size={24} className={colors.accent} />
+            </div>
+
+            <h3 className="text-2xl font-light text-slate-800 mb-4 group-hover:text-slate-900 transition-colors">
+              {title}
+            </h3>
+
+            <p className="text-slate-600 leading-relaxed mb-8 group-hover:text-slate-700 transition-colors h-20">
+              {description}
+            </p>
           </div>
-
-          <h3 className="text-2xl font-light text-slate-800 mb-4 group-hover:text-slate-900 transition-colors">
-            {title}
-          </h3>
-
-          <p className="text-slate-600 leading-relaxed mb-8 group-hover:text-slate-700 transition-colors h-20">
-            {description}
-          </p>
 
           <div
             className={cn(

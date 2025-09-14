@@ -45,6 +45,13 @@ export default function Home() {
               character={LetterOptionals[1].character}
               positionalOptional={1}
             />
+            <LetterLink
+              title={LetterOptionals[2].title}
+              description={LetterOptionals[2].description}
+              href={LetterOptionals[2].href}
+              character={LetterOptionals[2].character}
+              positionalOptional={2}
+            />
           </div>
         </div>
 
