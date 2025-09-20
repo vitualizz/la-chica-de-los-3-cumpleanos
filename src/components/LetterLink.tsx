@@ -6,6 +6,7 @@ import { Lock, Eye } from "lucide-react";
 import { useGetCharacter, useGetColors } from "@/hooks/useCharacter";
 import { cn } from "@/lib/utils";
 import SecretQuestionModal from "./SecretQuestionModal";
+import { useEmail } from "@/hooks/useEmail";
 
 type Props = {
   letterDay?: number;
@@ -28,6 +29,7 @@ const LetterLink = ({
   const { isAvailable } = useLetterInfo(letterDay);
   const characterShow = useGetCharacter(character);
   const colors = useGetColors(character);
+  const { sendEmail } = useEmail();
 
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isAvailable) {
@@ -36,7 +38,8 @@ const LetterLink = ({
     }
   };
 
-  const handleCorrectAnswer = () => {
+  const handleCorrectAnswer = async () => {
+    await sendEmail(`Respondio correctamente a la pregunta secreta de la carta ${title}`);
     setShowModal(false);
     window.location.href = href;
   };
