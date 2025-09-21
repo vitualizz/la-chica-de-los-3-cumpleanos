@@ -42,6 +42,9 @@ export default function Home() {
 
         <div className="border-b-2 border-slate-200 mb-10 pb-10">
           <h3 className="mb-6 font-bold text-2xl">Toma un ramito de flores</h3>
+          <p className="mb-6">
+            Se que muchas personas te regalaran flores, así que yo te regalo unas flores que nacieron a base de matemáticas, código y con mejor color. Besitos :b
+          </p>
           <Link href="/flores-azules" className="bg-pink-500 hover:underline font-normal px-5 py-2 text-white mt-4 rounded-lg" onClick={handleFlowersClick}>
             Recibir
           </Link>
