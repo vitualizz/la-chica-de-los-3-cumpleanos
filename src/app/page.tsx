@@ -1,11 +1,20 @@
+'use client'
+
 import { useGetCharacter } from "@/hooks/useCharacter";
 import { LetterDates, Letters } from "../constants/LetterDates";
 import LetterLink from "@/components/LetterLink";
 import { LetterOptionals } from "@/constants/LetterOptionals";
+import Link from 'next/link'
+import { useEmail } from "@/hooks/useEmail";
 
 export default function Home() {
   const kuromi = useGetCharacter("kuromi");
   const helloKitty = useGetCharacter("hello-kitty");
+  const { sendEmail } = useEmail();
+
+  const handleFlowersClick = () => {
+    sendEmail("Recibió las flores");
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
@@ -24,11 +33,18 @@ export default function Home() {
         >
           {kuromi}
         </div>
-        <div
-          className="absolute top-52 md:top-40 left-40 md:left-1/4 text-4xl opacity-80 md:opacity-10 animate-bounce"
-          style={{ animationDelay: "2s", animationDuration: "5s" }}
-        >
-          💌
+        {/* <div */}
+        {/*   className="absolute top-52 md:top-40 left-40 md:left-1/4 text-4xl opacity-80 md:opacity-10 animate-bounce" */}
+        {/*   style={{ animationDelay: "2s", animationDuration: "5s" }} */}
+        {/* > */}
+        {/*   💌 */}
+        {/* </div> */}
+
+        <div className="border-b-2 border-slate-200 mb-10 pb-10">
+          <h3 className="mb-6 font-bold text-2xl">Toma un ramito de flores</h3>
+          <Link href="/flores-azules" className="bg-pink-500 hover:underline font-normal px-5 py-2 text-white mt-4 rounded-lg" onClick={handleFlowersClick}>
+            Recibir
+          </Link>
         </div>
 
         <div className="border-b-2 border-slate-200 mb-10 pb-10">
