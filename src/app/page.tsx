@@ -40,6 +40,37 @@ export default function Home() {
         {/*   💌 */}
         {/* </div> */}
 
+        {/* Sección Halloween - Nueva carta Jawolin */}
+        <div className="border-b-2 border-slate-200 mb-10 pb-10">
+          <div className="relative">
+            {/* Decoraciones de Halloween */}
+            <div className="absolute -top-4 -left-4 text-3xl opacity-20 animate-bounce" style={{ animationDelay: "0s", animationDuration: "3s" }}>
+              🎃
+            </div>
+            <div className="absolute -top-2 -right-6 text-2xl opacity-20 animate-bounce" style={{ animationDelay: "1s", animationDuration: "4s" }}>
+              👻
+            </div>
+            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-2xl opacity-20 animate-bounce" style={{ animationDelay: "2s", animationDuration: "5s" }}>
+              🦇
+            </div>
+            
+            <h3 className="mb-6 font-bold text-2xl text-center">🎃 Es momento de un poco de terror 🎃</h3>
+            <p className="mb-6 text-center text-slate-600">
+              Ya que estás aquí, solo queria recordarte que me caes al pincho :3
+            </p>
+            <div className="text-center">
+              <Link 
+                href="/carta-jawolin" 
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 font-normal px-6 py-3 text-white mt-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                <span>🎃</span>
+                Descubrir la Carta Jawolin
+                <span>👻</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         <div className="border-b-2 border-slate-200 mb-10 pb-10">
           <h3 className="mb-6 font-bold text-2xl">Toma un ramito de flores</h3>
           <p className="mb-6">
