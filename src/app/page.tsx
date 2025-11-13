@@ -41,6 +41,12 @@ export default function Home() {
         {/* </div> */}
 
         {/* Sección Halloween - Nueva carta Jawolin */}
+
+        <div className="border-b-2 border-slate-200 mb-10 pb-10 relative">
+          <h3>¿Será un buen momento para escribir o será un buen momento para leer?</h3>
+          <h2>¿Smile? 😊</h2>
+        </div>
+
         <div className="border-b-2 border-slate-200 mb-10 pb-10">
           <div className="relative">
             {/* Decoraciones de Halloween */}
