@@ -1,4 +1,5 @@
 import React, { useRef, useMemo, useState } from 'react';
+import { headers } from 'next/headers';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -232,7 +233,13 @@ function Background() {
 }
 
 export default function App() {
-  const [isMobile, _setIsMobile] = useState(window.innerWidth < 768);
+  const isMobile = (userAgent) => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+    return isMobile;
+  };
+
+  const userAgent = headers().get('user-agent') || '';
+  const isMobileDevice = isMobile(userAgent);
 
   return (
     <div className="w-full h-screen bg-gradient-to-b from-slate-800 via-blue-900 to-slate-800 relative overflow-hidden">
@@ -247,7 +254,7 @@ export default function App() {
 
       {/* Canvas 3D */}
       <Canvas shadows className="w-full h-full">
-        <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={isMobile ? 100 : 55} />
+        <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={isMobileDevice ? 100 : 55} />
         
         {/* Iluminación mejorada - más brillante */}
         <ambientLight intensity={0.6} color="#f0f0ff" />
