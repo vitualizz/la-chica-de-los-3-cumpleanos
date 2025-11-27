@@ -1,5 +1,4 @@
-import React, { useRef, useMemo, useState } from 'react';
-import { headers } from 'next/headers';
+import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -232,15 +231,7 @@ function Background() {
   );
 }
 
-export default function App() {
-  const isMobile = (userAgent) => {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-    return isMobile;
-  };
-
-  const userAgent = headers().get('user-agent') || '';
-  const isMobileDevice = isMobile(userAgent);
-
+export default function App({ isMobileDevice = true }) {
   return (
     <div className="w-full h-screen bg-gradient-to-b from-slate-800 via-blue-900 to-slate-800 relative overflow-hidden">
       {/* Texto romántico */}

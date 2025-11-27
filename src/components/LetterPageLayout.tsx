@@ -13,15 +13,16 @@ type Props = {
   children: ReactNode;
   day?: number;
   positionOptional?: number;
+  isMobileDevice?: boolean;
 };
 
-const LetterPageLayout = ({ children, day, positionOptional }: Props) => {
+const LetterPageLayout = ({ children, day, positionOptional, isMobileDevice }: Props) => {
   const title = day ? Letters[day].title : LetterOptionals[positionOptional ?? 1].title;
   const character = day ? Letters[day].character : LetterOptionals[positionOptional ?? 1].character;
   const characterShow = useGetCharacter(character);
   const colors = useGetColors(character);
 
-  if (true) return <FlowersBluePage />;
+  if (true) return <FlowersBluePage isMobileDevice={true} />;
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">

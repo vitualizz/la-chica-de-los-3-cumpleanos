@@ -7,6 +7,7 @@ import { LetterOptionals } from "@/constants/LetterOptionals";
 import Link from 'next/link'
 import { useEmail } from "@/hooks/useEmail";
 import FlowersBluePage from "@/components/FlowerBluePage";
+import { headers } from 'next/headers';
 
 export default function Home() {
   const kuromi = useGetCharacter("kuromi");
@@ -17,7 +18,15 @@ export default function Home() {
     sendEmail("Recibió las flores");
   };
 
-  if (true) return <FlowersBluePage />;
+  const isMobile = (userAgent: string) => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+    return isMobile;
+  };
+
+  const userAgent = headers().get('user-agent') || '';
+  const isMobileDevice = isMobile(userAgent);
+
+  if (true) return <FlowersBluePage isMobileDevice={isMobileDevice} />;
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
