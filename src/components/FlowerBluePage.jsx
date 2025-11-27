@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -232,11 +232,13 @@ function Background() {
 }
 
 export default function App() {
+  const [isMobile, _setIsMobile] = useState(window.innerWidth < 768);
+
   return (
     <div className="w-full h-screen bg-gradient-to-b from-slate-800 via-blue-900 to-slate-800 relative overflow-hidden">
       {/* Texto romántico */}
       <div className="absolute top-4 sm:top-8 left-0 right-0 z-10 text-center px-4">
-        <h3 className="text-xl sm:text-2xl md:text-4xl font-light text-blue-200 tracking-wide drop-shadow-lg">
+        <h3 className="text-lg sm:text-2xl md:text-4xl font-light text-blue-200 tracking-wide drop-shadow-lg">
           Esta rosa hecha de matemáticas no se marchita.
           <br />
           Y pensar que siempre dije que lo fugaz era la regla… parece que alguna excepción tenía que existir, ¿no?.
@@ -245,7 +247,7 @@ export default function App() {
 
       {/* Canvas 3D */}
       <Canvas shadows className="w-full h-full">
-        <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={55} />
+        <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={isMobile ? 100 : 55} />
         
         {/* Iluminación mejorada - más brillante */}
         <ambientLight intensity={0.6} color="#f0f0ff" />
@@ -311,6 +313,11 @@ export default function App() {
           target={[0, -2, 0]}
         />
       </Canvas>
+
+      <div className="text-blue-400 font-bold text-sm absolute bottom-4 sm:bottom-8 left-0 right-0 z-10 text-center px-4">
+        <br />
+        (Puedes mover la rosa, producto de estudiar mucho y 3 red bulls csmre, no esperes menos de nadie mrda añañañaña)
+      </div>
 
       {/* Partículas flotantes más visibles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
