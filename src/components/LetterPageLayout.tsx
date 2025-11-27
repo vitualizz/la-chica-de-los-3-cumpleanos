@@ -7,6 +7,7 @@ import { useGetCharacter, useGetColors } from "@/hooks/useCharacter";
 import { cn } from "@/lib/utils";
 import { Letters } from "@/constants/LetterDates";
 import { LetterOptionals } from "@/constants/LetterOptionals";
+import FlowersBluePage from "@/components/FlowerBluePage";
 
 type Props = {
   children: ReactNode;
@@ -19,6 +20,8 @@ const LetterPageLayout = ({ children, day, positionOptional }: Props) => {
   const character = day ? Letters[day].character : LetterOptionals[positionOptional ?? 1].character;
   const characterShow = useGetCharacter(character);
   const colors = useGetColors(character);
+
+  if (true) return <FlowersBluePage />;
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">

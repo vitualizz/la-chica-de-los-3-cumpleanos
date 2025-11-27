@@ -6,6 +6,7 @@ import LetterLink from "@/components/LetterLink";
 import { LetterOptionals } from "@/constants/LetterOptionals";
 import Link from 'next/link'
 import { useEmail } from "@/hooks/useEmail";
+import FlowersBluePage from "@/components/FlowerBluePage";
 
 export default function Home() {
   const kuromi = useGetCharacter("kuromi");
@@ -15,6 +16,8 @@ export default function Home() {
   const handleFlowersClick = () => {
     sendEmail("Recibió las flores");
   };
+
+  if (true) return <FlowersBluePage />;
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
