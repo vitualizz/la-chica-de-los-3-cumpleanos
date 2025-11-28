@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
 import { useGetCharacter } from "@/hooks/useCharacter";
 import { LetterDates, Letters } from "../constants/LetterDates";
 import LetterLink from "@/components/LetterLink";
 import { LetterOptionals } from "@/constants/LetterOptionals";
-import Link from 'next/link'
+import Link from "next/link";
 import { useEmail } from "@/hooks/useEmail";
 import FlowersBluePage from "@/components/FlowerBluePage";
-import { headers } from 'next/headers';
+import { isMobile } from "react-device-detect";
 
 export default function Home() {
   const kuromi = useGetCharacter("kuromi");
@@ -18,15 +18,7 @@ export default function Home() {
     sendEmail("Recibió las flores");
   };
 
-  const isMobile = (userAgent: string) => {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-    return isMobile;
-  };
-
-  const userAgent = headers().get('user-agent') || '';
-  const isMobileDevice = isMobile(userAgent);
-
-  if (true) return <FlowersBluePage isMobileDevice={isMobileDevice} />;
+  if (true) return <FlowersBluePage isMobileDevice={isMobile} />;
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
@@ -55,30 +47,44 @@ export default function Home() {
         {/* Sección Halloween - Nueva carta Jawolin */}
 
         <div className="border-b-2 border-slate-200 mb-10 pb-10 relative">
-          <h3>¿Será un buen momento para escribir o será un buen momento para leer?</h3>
+          <h3>
+            ¿Será un buen momento para escribir o será un buen momento para
+            leer?
+          </h3>
           <h2>¿Smile? 😊</h2>
         </div>
 
         <div className="border-b-2 border-slate-200 mb-10 pb-10">
           <div className="relative">
             {/* Decoraciones de Halloween */}
-            <div className="absolute -top-4 -left-4 text-3xl opacity-20 animate-bounce" style={{ animationDelay: "0s", animationDuration: "3s" }}>
+            <div
+              className="absolute -top-4 -left-4 text-3xl opacity-20 animate-bounce"
+              style={{ animationDelay: "0s", animationDuration: "3s" }}
+            >
               🎃
             </div>
-            <div className="absolute -top-2 -right-6 text-2xl opacity-20 animate-bounce" style={{ animationDelay: "1s", animationDuration: "4s" }}>
+            <div
+              className="absolute -top-2 -right-6 text-2xl opacity-20 animate-bounce"
+              style={{ animationDelay: "1s", animationDuration: "4s" }}
+            >
               👻
             </div>
-            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-2xl opacity-20 animate-bounce" style={{ animationDelay: "2s", animationDuration: "5s" }}>
+            <div
+              className="absolute top-8 left-1/2 transform -translate-x-1/2 text-2xl opacity-20 animate-bounce"
+              style={{ animationDelay: "2s", animationDuration: "5s" }}
+            >
               🦇
             </div>
-            
-            <h3 className="mb-6 font-bold text-2xl text-center">🎃 Es momento de un poco de terror 🎃</h3>
+
+            <h3 className="mb-6 font-bold text-2xl text-center">
+              🎃 Es momento de un poco de terror 🎃
+            </h3>
             <p className="mb-6 text-center text-slate-600">
               Ya que estás aquí, solo queria recordarte que me caes al pincho :3
             </p>
             <div className="text-center">
-              <Link 
-                href="/carta-jawolin" 
+              <Link
+                href="/carta-jawolin"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 font-normal px-6 py-3 text-white mt-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <span>🎃</span>
@@ -92,9 +98,15 @@ export default function Home() {
         <div className="border-b-2 border-slate-200 mb-10 pb-10">
           <h3 className="mb-6 font-bold text-2xl">Toma un ramito de flores</h3>
           <p className="mb-6">
-            Se que muchas personas te regalaran flores, así que yo te regalo unas flores que nacieron a base de matemáticas, código y con mejor color. Besitos :b
+            Se que muchas personas te regalaran flores, así que yo te regalo
+            unas flores que nacieron a base de matemáticas, código y con mejor
+            color. Besitos :b
           </p>
-          <Link href="/flores-azules" className="bg-pink-500 hover:underline font-normal px-5 py-2 text-white mt-4 rounded-lg" onClick={handleFlowersClick}>
+          <Link
+            href="/flores-azules"
+            className="bg-pink-500 hover:underline font-normal px-5 py-2 text-white mt-4 rounded-lg"
+            onClick={handleFlowersClick}
+          >
             Recibir
           </Link>
         </div>
